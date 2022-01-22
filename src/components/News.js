@@ -72,8 +72,8 @@ let parsedData=await data.json();
 this.setState({articles:parsedData.articles})   
      }
   render() {
-    return <div className='container my-3' >
-        <h2 className='text-center fs-40 mb-4 font-weight-bold'>Top Headlines</h2>
+    return <div className='container ' >
+        <h2 className='text-center fs-40 mb-2 display-1'>Top Headlines</h2>
         
         <div className="row">
           {this.state.articles.map((news)=>{return(<div className="col-md-3" key={news.url}>
