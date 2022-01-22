@@ -305,7 +305,7 @@ export default class News extends Component {
           </h2>
 
           <div className="row">
-            {this.state.articles.map((news) => {
+            {this.state.articles &&this.state.articles.map((news) => {
               return (
                 <div className="col-md-4" key={news.url}>
                   <NewsItem
