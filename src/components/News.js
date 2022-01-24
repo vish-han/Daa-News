@@ -18,13 +18,14 @@ export default class News extends Component {
     let data = await ParsedData.json();
     this.setState({
       articles: data.articles,
+      totalResults: data.totalResults,
     });
   };
   handleNextClick = async () => {
     console.log("next");
     let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=d707098271244ee5b4ea757fc4c7bc2f&page=${
       this.state.page + 1
-    }&pageSize=6`;
+    }&pageSize=${this.props.pageSize}`;
     let ParsedData = await fetch(url);
     let data = await ParsedData.json();
     this.setState({
@@ -36,7 +37,7 @@ export default class News extends Component {
     console.log("prev");
     let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=d707098271244ee5b4ea757fc4c7bc2f&page=${
       this.state.page - 1
-    }&pageSize=6`;
+    }&pageSize=${this.props.pageSize}`;
     let ParsedData = await fetch(url);
     let data = await ParsedData.json();
     this.setState({
@@ -78,7 +79,14 @@ export default class News extends Component {
             >
               &larr; Previous{" "}
             </button>
-            <button className="btn btn-dark" onClick={this.handleNextClick}>
+            <button
+              className="btn btn-dark"
+              onClick={this.handleNextClick}
+              disabled={
+                this.state.page + 1 >
+                Math.ceil(this.state.totalResults / this.props.pageSize)
+              }
+            >
               Next &rarr;
             </button>
           </div>
