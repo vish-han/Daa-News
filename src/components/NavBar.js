@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-
+import { Link } from "react-router-dom";
 export default class NavBar extends Component {
   render() {
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow p-3 mb-6 ">
-        <div className="container-fluid">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow p-2 mb-6 ">
+        <div className="container-fluid ">
           <a className="navbar-brand" href="/">
             Daa News
           </a>
@@ -22,12 +22,27 @@ export default class NavBar extends Component {
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
-              <a className="nav-link active" aria-current="page" href="/">
+              <Link className="nav-link" aria-current="page" to="/">
                 Home
-              </a>
-              <a className="nav-link" href="/">
-                About
-              </a>
+              </Link>
+              <Link className="nav-link" to="/Sports">
+                Sports
+              </Link>
+              <Link className="nav-link" to="/Health">
+                Health
+              </Link>
+              <Link className="nav-link" to="/Science">
+                Science
+              </Link>
+              <Link className="nav-link" to="/Business">
+                Business
+              </Link>
+              <Link className="nav-link" to="/Entertainment">
+                Entertainment
+              </Link>
+              <Link className="nav-link" to="/Technology">
+                Technology
+              </Link>
             </div>
           </div>
         </div>
