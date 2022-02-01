@@ -6,6 +6,7 @@ export default class News extends Component {
   constructor() {
     super();
     console.log("this is a constructor");
+    console.log("this is a new change");
     this.state = {
       articles: [],
       loading: false,
@@ -79,7 +80,7 @@ export default class News extends Component {
                       newsURL={news.url}
                       author={news.author}
                       publishedAt={news.publishedAt}
-                      source={news.source.name}
+                      Source={news.source.name}
                     />
                   </div>
                 );
